@@ -53,15 +53,15 @@ admin_1 = st.Page(
 admin_2 = st.Page("admin/admin_2.py", title="Admin 2", icon=":material/security:")
 '''
 consulta = st.Page(
-    "/consulta.py",
+    "consulta.py",
     title = "Consulta",
     icon = ":material/person_add:",
-    default = (role == "Admin"),
+    default = (role == "Consulta"),
 )
 request_pages = [consulta]
 
 st.title("Gestor de peticiones")
-st.logo("/sgc.png")
+st.logo("sgc.png")
 
 page_dict = {}
 if st.session_state.role in ["Consulta"]:
