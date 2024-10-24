@@ -54,7 +54,7 @@ admin_2 = st.Page("admin/admin_2.py", title="Admin 2", icon=":material/security:
 '''
 consulta = st.Page(
     "/consulta.py",
-    tittle = "Consulta",
+    title = "Consulta",
     icon = ":material/person_add:",
     default = (role == "Admin"),
 )
