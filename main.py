@@ -68,5 +68,4 @@ if st.session_state.role in ["Consulta"]:
     page_dict["Consulta"] = request_pages
 else:
     pg = st.navigation([st.Page(login)])
-
-pg.run()
+    pg.run()
