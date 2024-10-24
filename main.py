@@ -34,7 +34,7 @@ consulta = st.Page(
 )
 request_pages = [consulta]
 
-st.title("Gestor de peticiones")
+st.title("Sistema de gesiton del conocimiento online")
 st.logo("sgc.png")
 
 page_dict = {}
