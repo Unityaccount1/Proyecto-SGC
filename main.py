@@ -34,7 +34,7 @@ consulta = st.Page(
 )
 request_pages = [consulta]
 
-st.title("Sistema de gesiton del conocimiento online")
+st.title("Sistema de Gestión del Conocimiento")
 st.logo("sgc.png")
 
 page_dict = {}
