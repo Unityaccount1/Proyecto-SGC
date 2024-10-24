@@ -8,10 +8,10 @@ ROLES = [None, "Consulta", "Carga", "Admin"]
 
 def login():
 
-    st.header("Log in")
-    role = st.selectbox("Choose your role", ROLES)
+    st.header("Inicio de sesión")
+    role = st.selectbox("Escoge tu rol: ", ROLES)
 
-    if st.button("Log in"):
+    if st.button("Ingresar"):
         st.session_state.role = role
         st.rerun()
 
@@ -28,8 +28,7 @@ settings = st.Page("settings.py", title="Settings", icon=":material/settings:")
 consulta = st.Page(
     "consulta.py",
     title = "Consulta",
-    icon = ":material/person_add:",
-    default = (role == "Consulta"),
+    icon = ":material/handyman:",
 )
 request_pages = [consulta]
 
@@ -38,7 +37,7 @@ st.logo("sgc.png")
 
 page_dict = {}
 if st.session_state.role in ["Consulta"]:
-    page_dict["Consulta"] = request_pages
+    page_dict["Prueba"] = request_pages
 else:
     pg = st.navigation([st.Page(login)])
     pg.run()
