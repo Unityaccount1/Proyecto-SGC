@@ -5,6 +5,11 @@ if "role" not in st.session_state:
 
 ROLES = [None, "Consulta", "Carga", "Admin"]
 
+def logout():
+    st.session_state.role = None
+    st.rerun()
+def consulta():
+    st.write("Bienvenido a la seccion de consulta")
 
 def login():
 
@@ -13,21 +18,22 @@ def login():
 
     if st.button("Ingresar"):
         st.session_state.role = role
-        st.rerun()
+        if (st.session_state.role == "Consulta"):
+            consulta()
+        if (st.session_state.role == "Carga"):
+            consulta()
+        if (st.session_state.role == "Admin"):
+            consulta()
+        else:
+            st.session_state.role = None
+            st.rerun()
+        #st.rerun()
 
-
-def logout():
-    st.session_state.role = None
-    st.rerun()
-def consulta():
-    st.write("Bienvenido a la seccion de consulta")
-    
-
-role = st.session_state.role
+#role = st.session_state.role
 
 st.title("Sistema de Gestión del Conocimiento")
 st.logo("sgc.png")
-
+'''
 opcion = st.selectbox("Selecciona un rol: ", ROLES)
 
 if opcion == "Consulta":
@@ -38,3 +44,5 @@ if opcion == "Admin":
     st.write("Bienvenido a la zona administrativa")
 else:
     logout()
+'''
+
