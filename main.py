@@ -26,7 +26,7 @@ role = st.session_state.role
 logout_page = st.Page(logout, title="Cerrar sesión", icon=":material/logout:")
 settings = st.Page("settings.py", title="Settings", icon=":material/settings:")
 consulta = st.Page(
-    "consulta.py",
+    "./consulta.py",
     title = "Consulta",
     icon = ":material/handyman:",
 )
