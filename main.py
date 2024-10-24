@@ -25,21 +25,16 @@ def consulta():
 
 role = st.session_state.role
 
-logout_page = st.Page(logout, title="Cerrar sesión", icon=":material/logout:")
-settings = st.Page("settings.py", title="Settings", icon=":material/settings:")
-consulta = st.Page(
-    consulta,
-    title = "Consulta",
-    icon = ":material/handyman:",
-)
-request_pages = [consulta]
-
 st.title("Sistema de Gestión del Conocimiento")
 st.logo("sgc.png")
 
-page_dict = {}
-if st.session_state.role in ["Consulta"]:
-    page_dict["Prueba"] = request_pages
+opcion = st.selectbox("Selecciona un rol: ", ROLES)
+
+if opcion == "Consulta":
+    st.write("Bienvenido a consulta")
+if opcion == "Carga":
+    st.write("Bienvenido a la carga de archivos")
+if opcion == "Admin":
+    st.write("Bienvenido a la zona administrativa")
 else:
-    pg = st.navigation([st.Page(login)])
-    pg.run()
+    logout()
