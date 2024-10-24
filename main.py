@@ -29,20 +29,9 @@ def login():
             st.rerun()
         #st.rerun()
 
-#role = st.session_state.role
+role = st.session_state.role
 
 st.title("Sistema de Gestión del Conocimiento")
 st.logo("sgc.png")
-'''
-opcion = st.selectbox("Selecciona un rol: ", ROLES)
 
-if opcion == "Consulta":
-    st.write("Bienvenido a consulta")
-if opcion == "Carga":
-    st.write("Bienvenido a la carga de archivos")
-if opcion == "Admin":
-    st.write("Bienvenido a la zona administrativa")
-else:
-    logout()
-'''
 
