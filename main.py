@@ -19,14 +19,16 @@ def login():
 def logout():
     st.session_state.role = None
     st.rerun()
-
+def consulta():
+    st.write("Bienvenido a la seccion de consulta")
+    
 
 role = st.session_state.role
 
 logout_page = st.Page(logout, title="Cerrar sesión", icon=":material/logout:")
 settings = st.Page("settings.py", title="Settings", icon=":material/settings:")
 consulta = st.Page(
-    "./consulta.py",
+    consulta,
     title = "Consulta",
     icon = ":material/handyman:",
 )
