@@ -6,7 +6,8 @@ from google.colab import userdata
 genai.configure(api_key=userdata.get('GeminiKey'))
 
 
-@def extract_text_from_pdf(pdf_path):
+@st.cache_resource
+def extract_text_from_pdf(pdf_path):
     with open(pdf_path, 'rb') as pdf_file:
         st.info("Cargando archivo")
         pdf_reader = PyPDF2.PdfReader(pdf_file)
@@ -16,12 +17,14 @@ genai.configure(api_key=userdata.get('GeminiKey'))
             if text:
                 extracted_text += text
         return extracted_text
-
-@def list_files():
+@st.cache_resource
+def list_files():
     for file in genai.list_files():
         nombre_archivos += file.display_name
     return nombre_archivos
-@def delete_file(file_name):
+    
+@st.cache_resource
+def delete_file(file_name):
     genai.delete_file(document_file.file_name)
     estado = "Eliminacion exitosa"
     return estado
