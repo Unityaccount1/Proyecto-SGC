@@ -1,4 +1,5 @@
 import streamlit as st
+import getpass
 from PyPDF2 import PdfReader #library to read pdf files
 from langchain.text_splitter import RecursiveCharacterTextSplitter#library to split pdf files
 import os
