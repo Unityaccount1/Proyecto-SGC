@@ -2,7 +2,7 @@ import streamlit as st
 import PyPDF2
 import google.generativeai as genai
 genai.__version__
-import userdata
+from google.colab import userdata
 genai.configure(api_key=userdata.get('GeminiKey'))
 
 
