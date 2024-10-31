@@ -13,8 +13,10 @@ from langchain.prompts import PromptTemplate #to create prompt templates
 from dotenv import load_dotenv
 
 load_dotenv()
+API_KEY = os.getenv("GeminiKey")
 
-genai.configure(api_key = os.getenv("GeminiKey"))
+# Set up Google Gemini-Pro AI model
+genai.configure(api_key=API_KEY)
 
 def get_pdf_text(pdf_docs):
     text = ""
