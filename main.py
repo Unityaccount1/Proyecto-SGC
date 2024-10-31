@@ -137,12 +137,12 @@ def main():
                 full_response = ''
                 for item in response['output_text']:
                     full_response += item
-                    words = len(full_response)
-                    total_words = total_words + words
-                    avg_words = total_words/iterator
-                    iterator += 1
-                    full_response += "Numero de palabras: " + str(words) + " Total de palabras: " + str(total_words) + " Promedio: " + str(avg_words) + " Iteraciones: " + str(iterator)
                     placeholder.markdown(full_response)
+                words = len(full_response)
+                total_words = total_words + words
+                avg_words = total_words/iterator
+                iterator += 1
+                full_response += "Numero de palabras: " + str(words) + " Total de palabras: " + str(total_words) + " Promedio: " + str(avg_words) + " Iteraciones: " + str(iterator)
                 placeholder.markdown(full_response)
         if response is not None:
             message = {"role": "assistant", "content": full_response}
