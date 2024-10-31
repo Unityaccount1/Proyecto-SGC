@@ -14,6 +14,11 @@ load_dotenv()
 os.getenv("GOOGLE_API_KEY")
 genai.configure(api_key=os.getenv("GOOGLE_API_KEY"))
 
+
+total_words = 0
+avg_words = 0
+iterator = 1
+
 # read all pdf files and return text
 
 
@@ -86,6 +91,7 @@ def user_input(user_question):
 
 
 def main():
+    words = 0
     st.set_page_config(
         page_title="Gemini PDF Chatbot",
         page_icon="🤖"
@@ -147,8 +153,5 @@ def main():
 
 
 if __name__ == "__main__":
-    words = 0
-    total_words = 0
-    avg_words = 0
-    iterator = 1
+
     main()
