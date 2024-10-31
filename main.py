@@ -16,18 +16,18 @@ def extract_text_from_pdf(pdf_path):
             text = page.extract_text()
             if text:
                 extracted_text += text
-return extracted_text
+        return extracted_text
 @st.cache_resource
 def list_files():
     for file in genai.list_files():
         nombre_archivos += file.display_name
-return nombre_archivos
+    return nombre_archivos
     
 @st.cache_resource
 def delete_file(file_name):
     genai.delete_file(document_file.file_name)
     estado = "Eliminacion exitosa"
-return estado
+    return estado
 
     
 st.title("Sistema de Gestión del Conocimiento")
@@ -45,7 +45,7 @@ if opcion == "Consulta":
         response = model.generate_content([pregunta, carga_texto])
         st.write(response.text)
     else:
-        st.write("Debes cargar un archivo para empezar")
+        st.warning("Debes cargar un archivo para empezar", icon="⚠️")
     #prompt =Texto de entrada 
 if opcion == "Carga":
     st.write("Ingresó a la carga de archivos")
