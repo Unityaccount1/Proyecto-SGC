@@ -164,8 +164,9 @@ def main():
                     full_response += item
                     placeholder.markdown(full_response)
                 statistics_response = get_statistics(full_response)
-                full_response += "\n" + statistics_response
+                #full_response += "\n" + statistics_response
                 placeholder.markdown(full_response)
+                st.info(f"{statistics_response}")
         if response is not None:
             message = {"role": "assistant", "content": full_response}
             st.session_state.messages.append(message)
