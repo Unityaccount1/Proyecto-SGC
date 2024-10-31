@@ -1,5 +1,5 @@
 import streamlit as st
-import getpass
+
 from PyPDF2 import PdfReader #library to read pdf files
 from langchain.text_splitter import RecursiveCharacterTextSplitter#library to split pdf files
 import os
@@ -12,6 +12,7 @@ from langchain_google_genai import ChatGoogleGenerativeAI #
 from langchain.chains.question_answering import load_qa_chain #to chain the prompts
 from langchain.prompts import PromptTemplate #to create prompt templates
 from dotenv import load_dotenv
+import getpass
 
 load_dotenv()
 API_KEY = os.getenv("GeminiKey")
