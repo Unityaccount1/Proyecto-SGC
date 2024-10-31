@@ -141,7 +141,7 @@ def main():
                     total_words = total_words + words
                     avg_words = total_words/iterator
                     iterator += 1
-                    full_response += "Numero de palabras: " + words + " Total de palabras: " + total_words + " Promedio: " + avg_words + " Iteraciones: " + iterator
+                    full_response += "Numero de palabras: " + str(words) + " Total de palabras: " + str(total_words) + " Promedio: " + str(avg_words) + " Iteraciones: " + str(iterator)
                     placeholder.markdown(full_response)
                 placeholder.markdown(full_response)
         if response is not None:
