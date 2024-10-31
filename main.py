@@ -20,6 +20,8 @@ API_KEY = os.getenv("GeminiKey")
 genai.configure(api_key=API_KEY)
 if "GOOGLE_API_KEY" not in os.environ:
     os.environ["GOOGLE_API_KEY"] = getpass("GeminiKey")
+
+
 def get_pdf_text(pdf_docs):
     text = ""
     # iterate over all pdf files uploaded
