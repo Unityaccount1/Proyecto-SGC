@@ -15,19 +15,22 @@ os.getenv("GOOGLE_API_KEY")
 genai.configure(api_key=os.getenv("GOOGLE_API_KEY"))
 
 
+if "total_words" not in st.session_state:
+    st.session_state.total_words = 0
+if "avg_words" not in st.session_state:
+    st.session_state.avg_words = 0
+if "iterator" not in st.session_state:
+    st.session_state.iterator = 1
 
 
 @st.cache_resource
-total_words = 0
-avg_words = 0
-iterator = 1
 def get_statistics(text):
     words = 0
     words = len(text)
-    total_words += words
-    avg_words = total_words/iterator
+    st.session_state.total_words += words
+    st.session_state.avg_words = st.session_state.total_words/st.session_state.iterator
     response = " Numero de palabras: " + str(words) + " Total de palabras: " + str(total_words) + " Promedio: " + str(avg_words) + " Iteraciones: " + str(iterator)
-    iterator += 1
+    st.session_state.iterator += 1
     return response
     
 # read all pdf files and return text
