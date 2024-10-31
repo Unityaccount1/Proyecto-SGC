@@ -14,12 +14,13 @@ load_dotenv()
 os.getenv("GOOGLE_API_KEY")
 genai.configure(api_key=os.getenv("GOOGLE_API_KEY"))
 
-total_words = 0
-avg_words = 0
-iterator = 1
+
 
 
 @st.cache_resource
+total_words = 0
+avg_words = 0
+iterator = 1
 def get_statistics(text):
     words = 0
     words = len(text)
