@@ -125,6 +125,10 @@ def main():
             st.write(prompt)
 
     # Display chat messages and bot response
+    words = 0
+    total_words = 0
+    avg_words = 0
+    iterator = 1
     if st.session_state.messages[-1]["role"] != "assistant":
         with st.chat_message("assistant"):
             with st.spinner("Thinking..."):
@@ -133,6 +137,11 @@ def main():
                 full_response = ''
                 for item in response['output_text']:
                     full_response += item
+                    words = len(full_response)
+                    total_words = total_words + words
+                    avg_words = total_words/iterator
+                    iterator += 1
+                    full_response += "Numero de palabras: " + words + " Total de palabras: " + total_words + " Promedio: " + avg_words + " Iteraciones: " + iterator
                     placeholder.markdown(full_response)
                 placeholder.markdown(full_response)
         if response is not None:
