@@ -29,6 +29,9 @@ def get_statistics(text):
     words = len(text)
     st.session_state.total_words += words
     st.session_state.avg_words = st.session_state.total_words/st.session_state.iterator
+    total_words = st.session_state.total_words
+    avg_words = st.session_state.avg_words
+    iterator = st.session_state.iterator
     response = " Numero de palabras: " + str(words) + " Total de palabras: " + str(total_words) + " Promedio: " + str(avg_words) + " Iteraciones: " + str(iterator)
     st.session_state.iterator += 1
     return response
