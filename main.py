@@ -14,9 +14,21 @@ load_dotenv()
 os.getenv("GOOGLE_API_KEY")
 genai.configure(api_key=os.getenv("GOOGLE_API_KEY"))
 
+total_words = 0
+avg_words = 0
+iterator = 1
 
 
-
+@st.cache_resource
+def get_statistics(text):
+    words = 0
+    words = len(text)
+    total_words += words
+    avg_words = total_words/iterator
+    response = " Numero de palabras: " + str(words) + " Total de palabras: " + str(total_words) + " Promedio: " + str(avg_words) + " Iteraciones: " + str(iterator)
+    iterator += 1
+    return response
+    
 # read all pdf files and return text
 
 
@@ -90,9 +102,6 @@ def user_input(user_question):
 
 def main():
     #words = 0
-    total_words = 0
-    avg_words = 0
-    iterator = 1
     st.set_page_config(
         page_title="Gemini PDF Chatbot",
         page_icon="🤖"
@@ -141,12 +150,8 @@ def main():
                 for item in response['output_text']:
                     full_response += item
                     placeholder.markdown(full_response)
-                words = len(full_response)
-                total_words = total_words + words
-                avg_words = total_words/iterator
-                
-                full_response += "Numero de palabras: " + str(words) + " Total de palabras: " + str(total_words) + " Promedio: " + str(avg_words) + " Iteraciones: " + str(iterator)
-                iterator += 1
+                statistics_response = get_statistics(full_response)
+                full_response += statistics_response
                 placeholder.markdown(full_response)
         if response is not None:
             message = {"role": "assistant", "content": full_response}
