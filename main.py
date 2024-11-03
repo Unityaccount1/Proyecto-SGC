@@ -166,8 +166,8 @@ def main():
                 statistics_response = get_statistics(full_response)
                 #full_response += "\n" + statistics_response
                 placeholder.markdown(full_response)
-                st.info(f"Prueba")
-                #st.info(f"{statistics_response}")
+                #st.info(f"Prueba")
+                st.info(f"{statistics_response}")
         
         if response is not None:
             message = {"role": "assistant", "content": full_response}
