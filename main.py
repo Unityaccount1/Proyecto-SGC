@@ -74,17 +74,16 @@ def get_vector_store(chunks):
 
 def get_conversational_chain():
     prompt_template = """
-    Answer the question as detailed as possible from the provided context, make sure to provide all the details, if the answer is not in
-    provided context just say, "answer is not available in the context", don't provide the wrong answer\n\n
-    Context:\n {context}?\n
-    Question: \n{question}\n
+    Contesta la pregunta en español y que sea lo mas cercano posible a lo que se pide, no devuelvas respuestas erroneas, en caso contrario tienes que responder: "no puedo responder la pregunta con el contexto proporcionado"\n\n
+    Contexto:\n {context}?\n
+    Pregunta: \n{question}\n
 
-    Answer:
+    Respuesta:
     """
 
     model = ChatGoogleGenerativeAI(model="gemini-1.5-pro",
                                    client=genai,
-                                   temperature=0.3,
+                                   temperature=1,
                                    )
     prompt = PromptTemplate(template=prompt_template,
                             input_variables=["context", "question"])
